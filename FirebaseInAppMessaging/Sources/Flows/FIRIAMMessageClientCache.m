@@ -81,8 +81,8 @@
           return ![impressionSet containsObject:message.renderData.messageID];
         }];
 
-    self.regularMessages =
-        [[regularMessages filteredArrayUsingPredicate:notImpressedPredicate] mutableCopy];
+      self.regularMessages = regularMessages;
+//        [[regularMessages filteredArrayUsingPredicate:notImpressedPredicate] mutableCopy];
     [self setupAnalyticsEventListening];
   }
 
@@ -161,7 +161,7 @@
     for (FIRIAMMessageDefinition *next in self.regularMessages) {
       // message being active and message not impressed yet
       if ([next messageHasStarted] && ![next messageHasExpired] &&
-          ![impressionSet containsObject:next.renderData.messageID] &&
+//          ![impressionSet containsObject:next.renderData.messageID] &&
           [next messageRenderedOnTrigger:trigger]) {
         return next;
       }
@@ -186,7 +186,7 @@
       // message being active and message not impressed yet and the contextual trigger condition
       // match
       if ([next messageHasStarted] && ![next messageHasExpired] &&
-          ![impressionSet containsObject:next.renderData.messageID] &&
+//          ![impressionSet containsObject:next.renderData.messageID] &&
           [next messageRenderedOnAnalyticsEvent:eventName]) {
         return next;
       }

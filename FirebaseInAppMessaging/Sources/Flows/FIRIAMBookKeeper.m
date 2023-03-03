@@ -90,8 +90,8 @@ static NSTimeInterval kMaxFetchWaitTimeInSeconds = 3 * 24 * 60 * 60;
     _defaults = userDefaults;
 
     // ok if it returns 0 due to the entry being absent
-    _lastDisplayTime = [_defaults doubleForKey:FIRIAM_UserDefaultsKeyForLastImpressionTimestamp];
-    _lastFetchTime = [_defaults doubleForKey:FIRIAM_UserDefaultsKeyForLastFetchTimestamp];
+      _lastDisplayTime = 0;// [_defaults doubleForKey:FIRIAM_UserDefaultsKeyForLastImpressionTimestamp];
+      _lastFetchTime = 0;//[_defaults doubleForKey:FIRIAM_UserDefaultsKeyForLastFetchTimestamp];
 
     id fetchWaitTimeEntry = [_defaults objectForKey:kUserDefaultsKeyForFetchWaitTime];
 
