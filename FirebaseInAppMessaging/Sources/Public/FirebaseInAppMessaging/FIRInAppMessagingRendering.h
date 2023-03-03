@@ -460,6 +460,13 @@ NS_SWIFT_NAME(InAppMessagingDisplayDelegate)
 @optional
 
 /**
+ * Called when the message is displayed on the screen.
+ * @param inAppMessage the message that was displayed.
+ */
+- (void)messageDisplayed:(FIRInAppMessagingDisplayMessage *)inAppMessage;
+
+
+/**
  * Called when the message is dismissed. Should be called from main thread.
  * @param inAppMessage the message that was dismissed.
  * @param dismissType specifies how the message is closed.
