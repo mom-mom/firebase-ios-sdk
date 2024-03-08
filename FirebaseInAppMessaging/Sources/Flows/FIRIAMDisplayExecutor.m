@@ -67,6 +67,17 @@
 }
 
 #pragma mark - FIRInAppMessagingDisplayDelegate methods
+
+- (void)messageDisplayed:(FIRInAppMessagingDisplayMessage *)inAppMessage {
+    // Call through to app-side delegate.
+    __weak id<FIRInAppMessagingDisplayDelegate> appSideDelegate = self.inAppMessaging.delegate;
+    if ([appSideDelegate respondsToSelector:@selector(messageDisplayed:)]) {
+        [appSideDelegate messageDisplayed:inAppMessage];
+    }
+}
+
+
+
 - (void)messageClicked:(FIRInAppMessagingDisplayMessage *)inAppMessage
             withAction:(FIRInAppMessagingAction *)action {
   // Call through to app-side delegate.
