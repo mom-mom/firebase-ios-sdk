@@ -74,6 +74,9 @@ static const NSTimeInterval kMinValidImpressionTime = 3.0;
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   [self impressionStartCheckpoint];
+    if (self.inAppMessage && [self.displayDelegate respondsToSelector:@selector(messageDisplayed:)]) {
+        [self.displayDelegate messageDisplayed:self.inAppMessage];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
